@@ -13,6 +13,7 @@
 
 #include <igl/readSTL.h>
 #include <bathy_maps/drape_mesh.h>
+#include <fstream>
 
 using namespace std;
 using namespace xtf_data;
@@ -168,6 +169,11 @@ tuple<Eigen::MatrixXd, Eigen::MatrixXd, Eigen::VectorXi, Eigen::VectorXi, Eigen:
         duration = chrono::duration_cast<chrono::microseconds>(stop - start);
         cout << "vis time: " << duration.count() << " microseconds" << endl;
     }
+    
+    ofstream myfile;
+    myfile.open ("pings.txt", ios::app);
+    myfile << i << "\t" << hits_left_pings_indices[0] << "\t" << hits_left_pings_indices[hits_left_pings_indices.size()-1] << "\t" << hits_right_pings_indices[0] << "\t" << hits_right_pings_indices[hits_right_pings_indices.size()-1] << endl;
+    myfile.close();
 
     return make_tuple(hits_left_intensities, hits_right_intensities, hits_left_pings_indices, hits_right_pings_indices, pings[i].pos_ - offset);
 }

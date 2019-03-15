@@ -65,7 +65,7 @@ private:
 
 public:
 
-    sss_patch_assembler(int image_size=30, double world_size=8.);
+    sss_patch_assembler(int image_size=60, double world_size=32.);
 
     bool empty();
 

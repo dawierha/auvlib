@@ -93,7 +93,12 @@ bool PatchDraper::callback_mouse_down(igl::opengl::glfw::Viewer& viewer, int, in
         patch_assembler.activate(point - offset);
 
         cout << "Number in view: " << nbr_in_view << " out of: " << pings.size() << endl;
-
+        
+        ofstream myfile;
+        myfile.open ("pings.txt");
+        myfile << "Clicked the file" << endl;
+        myfile.close();
+        
         return true;
     }
     cout << "Not in mesh!" << endl;

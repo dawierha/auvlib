@@ -70,6 +70,7 @@ def normalize_intensities(sss_slices):
     new_slices = []
     for s in sss_slices:
         m = np.mean(s[s>.1])
+        print(m)
         ss = s.copy()
         if m != 0 and not np.isnan(m):
             ss *= .3/m
